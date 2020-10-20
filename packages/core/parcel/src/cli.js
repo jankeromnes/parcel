@@ -92,6 +92,7 @@ var hmrOptions = {
     value => parseInt(value, 10),
     parseInt(process.env.PORT, 10) || 1234,
   ],
+  '--public-url <url>': 'the path prefix for absolute urls',
   '--host <host>':
     'set the host to listen on, defaults to listening on all interfaces',
   '--https': 'serves files over HTTPS',
@@ -113,7 +114,6 @@ function applyOptions(cmd, options) {
 let serve = program
   .command('serve [input...]')
   .description('starts a development server')
-  .option('--public-url <url>', 'the path prefix for absolute urls')
   .option(
     '--open [browser]',
     'automatically open in specified browser, defaults to default browser',

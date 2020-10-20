@@ -16,7 +16,12 @@ export default (new Runtime({
       return;
     }
 
-    const {host, port} = options.hot;
+    let {host, port} = options.hot;
+    if (options.publicURL) {
+      const url = new URL(options.publicURL);
+      host = url.hostname;
+      port = url.port;
+    }
     return {
       filePath: __filename,
       code:
